@@ -1,0 +1,14 @@
+diff -up ksm_preload-346cb6db8e2ff4aba35917c3389d0ad2ed285c2f/src/libksm_preload.c.orig ksm_preload-346cb6db8e2ff4aba35917c3389d0ad2ed285c2f/src/libksm_preload.c
+--- ksm_preload-346cb6db8e2ff4aba35917c3389d0ad2ed285c2f/src/libksm_preload.c.orig	2013-10-23 14:38:13.318162875 +0200
++++ ksm_preload-346cb6db8e2ff4aba35917c3389d0ad2ed285c2f/src/libksm_preload.c	2013-10-23 14:39:24.899286479 +0200
+@@ -42,6 +42,10 @@
+ /* The default value for merge_threshold */
+ static const char *const MERGE_THRESHOLD_ENV_NAME = "KSMP_MERGE_THRESHOLD";
+ 
++#ifndef MAP_STACK
++#define MAP_STACK 0x20000
++#endif
++
+ /* mmap2 is only defined on some 32 bit systems
+  * (actually, it might only be defined i386)
+  */
